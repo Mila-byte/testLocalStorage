@@ -76,7 +76,7 @@ export default {
   h1 {
     font-size: 50px;
     font-weight: 800;
-    font-family: Corbel;
+    font-family: Corbel, sans-serif;
     font-style: italic;
     background: brown;
     padding: 30px 0;
