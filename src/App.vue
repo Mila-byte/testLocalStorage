@@ -69,17 +69,19 @@ export default {
 @import "assets/reset.css";
 #app {
   width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
-  min-height: 1200px;
-  background: #6495ed;
+  background: linear-gradient(to bottom right, #473935, #beaea7);
   text-align: center;
   h1 {
     font-size: 50px;
     font-weight: 800;
-    font-family: Corbel, sans-serif;
+    font-family: "JetBrains Mono";
     font-style: italic;
-    background: brown;
-    padding: 30px 0;
+    background: linear-gradient(to bottom right, #18191d80, rgba(18, 19, 18, 0.9)), url("assets/images/to-do.jpg") center;
+    background-size: cover;
+    padding: 50px 0;
+    color: #fff;
   }
 }
 </style>

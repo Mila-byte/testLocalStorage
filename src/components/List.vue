@@ -1,35 +1,42 @@
 <template>
-<div id="list">
-  <input type="text" :readonly="editMode" v-model="text">
-  <input type="button" value="X" @click="showModal=true">
-  <input type="button" :value="editMode ? 'Change' : 'Save'" @click="changeText">
-  <ModalWindow
-      v-show="showModal"
-               @declineDelete="showModal=false"
-               @deleteList="deleteElArr"/>
-</div>
+  <div id="list">
+    <input type="text" :readonly="editMode" v-model="text">
+    <input type="button" class="done"
+           :class="{
+    statusClick: complete
+  }"
+           value=" " @click="complete=!complete">
+    <input type="button" class="delete" value="X" @click="showModal=true">
+    <input type="button" class="change" :value="editMode ? 'Change' : 'Save'" @click="changeText">
+    <ModalWindow
+        v-show="showModal"
+        @declineDelete="showModal=false"
+        @deleteList="deleteElArr"/>
+  </div>
 </template>
 
 <script>
 import ModalWindow from "@/components/ModalWindow";
+
 export default {
   name: "List",
   components: {ModalWindow},
   props: [
     'elArrInComp'
   ],
-  data () {
+  data() {
     return {
+      complete: false,
       showModal: false,
       editMode: true,
       text: this.elArrInComp.text
     }
   },
   methods: {
-    deleteElArr () {
+    deleteElArr() {
       this.$emit('delList', this.elArrInComp.id)
     },
-    changeText() {
+    changeText () {
       !this.editMode ? this.$emit('changeText', {id: this.elArrInComp.id, text: this.text}) : ''
       this.editMode = !this.editMode
     }
@@ -39,15 +46,41 @@ export default {
 
 <style lang="scss">
 
-#list{
+#list {
   margin: 10px 0;
+
   input {
+    font-family: "JetBrains Mono", sans-serif;
+    font-size: 18px;
     padding: 10px;
-    &[type="button"] {
+
+    &[type="button"].delete {
       cursor: pointer;
-      background: #a52a2a99;
-      color: #e3d0d7;
+      background: #8a665e;
+      color: #ae2a37;
+      font-weight: 600;
     }
+
+    &[type="button"].change {
+      cursor: pointer;
+      background: #8a665e;
+      color: #1d1413;
+      font-weight: 600;
+    }
+
+    &[type="button"].done {
+      outline: none;
+      cursor: pointer;
+      background: url("../assets/images/Checkmark.png") no-repeat center;
+      background-size: contain;
+      &.statusClick {
+        background: radial-gradient(transparent, #07e35380), url("../assets/images/Checkmark.png") no-repeat center;
+        background-size: contain;
+        border: 2px solid #07e55580;
+      }
+    }
+
+
   }
 }
 

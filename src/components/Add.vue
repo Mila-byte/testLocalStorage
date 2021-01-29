@@ -1,7 +1,7 @@
 <template>
 <div id="add">
   <input type="text" v-model="text" @keyup.enter="addToDo">
-  <input type="button" value="+" @click="addToDo">
+  <input type="button" value=" " @click="addToDo">
 </div>
 </template>
 
@@ -28,11 +28,16 @@ export default {
 
 #add {
   margin: 10px auto;
-  background: #a52a2a;
-  width: 50%;
   input {
+    padding: 10px;
+    font-family: "JetBrains Mono", sans-serif;
+    font-size: 18px;
+    outline: none;
     &[type="button"] {
       cursor: pointer;
+      background: url("../assets/images/plus.svg") no-repeat center, #beaea7;
+      background-size: contain;
+      min-width: 40px;
     }
   }
 }
