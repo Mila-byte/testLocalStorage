@@ -5,7 +5,7 @@
            :class="{
     statusClick: complete
   }"
-           value=" " @click="complete=!complete">
+           value=" " @click="completeTask">
     <input type="button" class="delete" value="X" @click="showModal=true">
     <input type="button" class="change" :value="editMode ? 'Change' : 'Save'" @click="changeText">
     <ModalWindow
@@ -37,8 +37,12 @@ export default {
       this.$emit('delList', this.elArrInComp.id)
     },
     changeText () {
-      !this.editMode ? this.$emit('changeText', {id: this.elArrInComp.id, text: this.text}) : ''
+      !this.editMode ? this.$emit('changeText', {id: this.elArrInComp.id, text: this.text, complete: this.complete}) : ''
       this.editMode = !this.editMode
+    },
+    completeTask () {
+      this.complete=!this.complete
+      this.$emit('changeText', {id: this.elArrInComp.id, text: this.text, complete: this.complete})
     }
   }
 }
