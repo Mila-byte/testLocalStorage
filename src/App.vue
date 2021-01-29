@@ -71,14 +71,15 @@ export default {
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  background: linear-gradient(to bottom right, #473935, #beaea7);
+  background: linear-gradient(to bottom right, #47393590, #beaea790), url("assets/images/background.jpg") center;
+  background-size: cover;
   text-align: center;
   h1 {
     font-size: 50px;
     font-weight: 800;
     font-family: "JetBrains Mono";
     font-style: italic;
-    background: linear-gradient(to bottom right, #18191d80, rgba(18, 19, 18, 0.9)), url("assets/images/to-do.jpg") center;
+    background: linear-gradient(to bottom right, rgba(24, 25, 29, 0.9), rgba(62, 40, 40, 0.9)), url("assets/images/to-do.jpg") center;
     background-size: cover;
     padding: 50px 0;
     color: #fff;
