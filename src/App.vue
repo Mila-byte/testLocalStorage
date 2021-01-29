@@ -37,7 +37,8 @@ export default {
     addNewToDo (text) {
       this.arrToDo.push({
         id: this.idToDo++,
-        text: text
+        text: text,
+        complete: false
       })
       this.setData()
     },

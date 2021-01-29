@@ -26,10 +26,10 @@ export default {
   ],
   data() {
     return {
-      complete: false,
       showModal: false,
       editMode: true,
-      text: this.elArrInComp.text
+      text: this.elArrInComp.text,
+      complete: this.elArrInComp.complete
     }
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
       this.editMode = !this.editMode
     },
     completeTask () {
-      this.complete=!this.complete
+      this.complete = !this.complete
       this.$emit('changeText', {id: this.elArrInComp.id, text: this.text, complete: this.complete})
     }
   }
